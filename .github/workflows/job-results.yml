@@ -18,7 +18,7 @@ jobs:
     steps:
       - if: ${{matrix.os == 'ubuntu-18.04'}}
         run: |
-          exit 1
+          exit 0
   # This workflow contains a single job called "build"
   build:
     needs: setup
