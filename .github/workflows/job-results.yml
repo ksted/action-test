@@ -32,4 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ failure() }}
     steps:
-     - run: echo "Failure"
+     - if: ${{needs.setup.result == 'failure'}}
+       run: |
+        echo "Failure"
+        exit 1
