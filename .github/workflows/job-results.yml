@@ -28,7 +28,8 @@ jobs:
           exit 0
           
   teardown:
-     runs-on: ubuntu-latest
-     if: ${{ failure() }}
-     steps:
-      - run: echo "Failure"
+    needs: [setup, build]
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    steps:
+     - run: echo "Failure"
