@@ -47,3 +47,13 @@
 - Job 3 checks job 1 result
 - Job 4 checks job 3 result
 - Expected result: Job 4 runs and succeeds
+- Actual result: Job 4 runs and succeeds
+
+## Test 6
+- Job 1 is a matrix; one job fails, the other succeeds
+- Job 2 requires job 1
+- Job 2 succeeds
+- Job 3 requires jobs 1 and 2
+- Job 3 checks job 1 result
+- Job 4 checks job 3 result
+- Expected result: Job 4 runs and fails
