@@ -37,7 +37,13 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ failure() }}
     steps:
-     - if: ${{needs.setup.result == 'failure'}}
-       run: |
-        echo ${{needs.setup.result}}
-        exit 1
+     - run: exit 1
+        
+  status:
+    needs: teardown
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - if: ${{ needs.teardown.result == 'failure' }}
+        run: exit 1
+      - run: exit 0
